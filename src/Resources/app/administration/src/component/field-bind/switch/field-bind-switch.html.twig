@@ -1,0 +1,12 @@
+<!-- language=vuejs -->
+ <div class="sw-field--switch sw-form-field-renderer sw-field--switch-bordered is--bordered sw-field--default">
+    <sw-switch-field
+        :disabled="shouldDisable"
+        :label="label"
+        :inherited-value=inheritedValue
+        :ghost-value=ghostValue
+        :error=error
+        :value="value"
+        @change="$emit('change', $event)"
+    />
+</div>

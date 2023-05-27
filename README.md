@@ -1,1 +1,1 @@
-# Adresslabor Shopware6 CheckPlugin
+# shopware6-plugin

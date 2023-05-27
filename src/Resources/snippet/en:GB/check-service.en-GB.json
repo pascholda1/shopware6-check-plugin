@@ -1,0 +1,8 @@
+{
+	"checkout": {
+		"adresslabor-invalid-address-blocked": "invalid address cart"
+	},
+	"error": {
+		"adresslabor-invalid-address-blocked": "invalid address checkout"
+	}
+}

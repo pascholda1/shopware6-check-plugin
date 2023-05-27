@@ -1,0 +1,22 @@
+{
+	"name": "adresslabor/shopware6-check-plugin",
+	"description": "Adresslabor address validation",
+	"type": "shopware-platform-plugin",
+	"version": "1.0.0",
+	"license": "MIT",
+	"autoload": {
+		"psr-4": {
+			"Adresslabor\\CheckPlugin\\": "src/"
+		}
+	},
+	"extra": {
+		"shopware-plugin-class": "Adresslabor\\CheckPlugin\\AdresslaborCheckPlugin",
+		"label": {
+			"de-DE": "Adresslabor Check Plugin",
+			"en-GB": "Adresslabor Check Plugin"
+		}
+	},
+	"require": {
+		"adresslabor/check-service": "^1.0"
+	}
+}

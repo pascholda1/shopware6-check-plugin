@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+	<card>
+		<title>Adresslabor API configuration</title>
+		<input-field>
+			<name>apicid</name>
+			<label>apicid</label>
+			<placeholder>xxxx</placeholder>
+			<helpText><![CDATA[You can find your apicid on
+				<a href="https://www.adresslabor.de/en/mein-konto-mountpoint.html" target="_blank">adresslabor.de</a>
+				]]>
+			</helpText>
+			<helpText lang="de-DE"><![CDATA[
+			Sie finden Ihre apicid in Ihrem Konto auf <a href="https://www.adresslabor.de/de/mein-konto-mountpoint.html" target="_blank">adresslabor.de</a>
+				]]>
+			</helpText>
+		</input-field>
+		<input-field>
+			<name>apikey</name>
+			<label>apikey</label>
+			<placeholder>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</placeholder>
+			<helpText><![CDATA[You can find your apikey on
+				<a href="https://www.adresslabor.de/en/mein-konto-mountpoint.html" target="_blank">adresslabor.de</a>
+				]]>
+			</helpText>
+			<helpText lang="de-DE"><![CDATA[
+			Sie finden Ihre apikey in Ihrem Konto auf <a href="https://www.adresslabor.de/de/mein-konto-mountpoint.html" target="_blank">adresslabor.de</a>
+				]]>
+			</helpText>
+		</input-field>
+		<component name="field-bind-switch">
+			<name>forceValidation</name>
+			<label>force validieren</label>
+			<label lang="de-DE">Prüfung erzwingen</label>
+			<default>true</default>
+			<disabledWhenFalse>apikey,apicid</disabledWhenFalse>
+		</component>
+	</card>
+	<card>
+		<title>Address Validation</title>
+		<input-field type="bool">
+			<name>validateShippingAddress</name>
+			<label>Validate Shipping Address</label>
+			<label lang="de-DE">Lieferadresse validieren</label>
+			<default>true</default>
+		</input-field>
+		<input-field type="bool">
+			<name>validateBillingAddress</name>
+			<label>Validate Billing Address</label>
+			<label lang="de-DE">Rechnungsadresse validieren</label>
+			<default>true</default>
+		</input-field>
+	</card>
+	<card>
+		<title>Email Validation</title>
+		<input-field type="bool">
+			<name>validateEmailAddress</name>
+			<label>Validate Email Address</label>
+			<label lang="de-DE">E-Mail Adresse validieren</label>
+			<default>true</default>
+		</input-field>
+		<component name="field-bind-switch">
+			<name>blockDisposableEmails</name>
+			<label>Block Disposable Email Address</label>
+			<label lang="de-DE">Wegwerf E-Mail-Adressen blockieren</label>
+			<default>false</default>
+			<disabledWhenFalse>validateEmailAddress</disabledWhenFalse>
+		</component>
+	</card>
+	<card>
+		<title>Name Validation</title>
+		<input-field type="bool">
+			<name>validateName</name>
+			<label>Validate Name</label>
+			<label lang="de-DE">Namen validieren</label>
+			<default>true</default>
+		</input-field>
+		<input-field type="bool">
+			<name>fakeCheck</name>
+			<label>Block dubios names (fake check)</label>
+			<label lang="de-DE">Dubiose Namen blockieren (Fake-Check)</label>
+			<default>true</default>
+		</input-field>
+	</card>
+</config>
