@@ -146,14 +146,13 @@ class CartValidator implements CartValidatorInterface
         );
         
         switch ($checkResult->trafficlight) {
-            case 'rot':
-                $errors->add(new InvalidNameCartError($checkResult->resulttext));
-                break;
             case 'gelb':
             case 'gruen':
                 $this->setNameFromCheckResult($customer, $checkResult);
                 $this->setNameHash($customer);
                 break;
+            default:
+                $errors->add(new InvalidNameCartError($checkResult->resulttext));
         }
     }
     
@@ -226,13 +225,11 @@ class CartValidator implements CartValidatorInterface
         );
         
         switch ($checkResult->trafficlight) {
-            case 'rot':
-            case 'gelb':
-                $errors->add(new FakeNameCartError($checkResult->resulttext));
-                break;
             case 'gruen':
                 $this->setFakeNameHash($customer);
                 break;
+            default:
+                $errors->add(new FakeNameCartError($checkResult->resulttext));
         }
     }
     
@@ -259,8 +256,6 @@ class CartValidator implements CartValidatorInterface
         $nameString = implode('-', [
             $customer->getFirstName(),
             $customer->getLastName(),
-            $customer->getSalutation(),
-            $customer->getTitle(),
         ]);
         
         return md5($nameString);
@@ -295,9 +290,6 @@ class CartValidator implements CartValidatorInterface
         $checkResult = $checkClient->emailCheck($customer->getEmail());
         
         switch ($checkResult->trafficlight) {
-            case 'rot':
-                $errors->add(new InvalidEmailAddressCartError($checkResult->resulttext));
-                break;
             case 'gelb':
                 if ($config->blockDisposableEmails
                     && $checkResult->resulttext === 'Domain weist auf Wegwerf-Email-Adresse hin') {
@@ -309,6 +301,8 @@ class CartValidator implements CartValidatorInterface
             case 'gruen':
                 $this->setEmailHash($customer);
                 break;
+            default:
+                $errors->add(new InvalidEmailAddressCartError($checkResult->resulttext));
         }
     }
     
@@ -362,9 +356,6 @@ class CartValidator implements CartValidatorInterface
             $checkResult = $this->validateAddress($checkClient, $shippingAddress);
             
             switch ($checkResult[0]->trafficlight) {
-                case 'rot':
-                    $errors->add(new InvalidShippingAddressCartError($checkResult[0]->resulttext));
-                    break;
                 case 'gelb':
                     $errors->add(new ShippingAddressChangedCartError($checkResult[0]->resulttext));
                     $this->setAddressFromCheckResult($shippingAddress, $checkResult[0]);
@@ -374,6 +365,8 @@ class CartValidator implements CartValidatorInterface
                     $this->setAddressFromCheckResult($shippingAddress, $checkResult[0]);
                     $this->setAddressHash($shippingAddress);
                     break;
+                default:
+                    $errors->add(new InvalidShippingAddressCartError($checkResult[0]->resulttext));
             }
         }
     }
@@ -397,15 +390,12 @@ class CartValidator implements CartValidatorInterface
         $billingAddress = $customer->getActiveBillingAddress();
         if ($config->validateBillingAddress
             && $billingAddress
-            && $this->isAddressAlreadyChecked($billingAddress)
+            && !$this->isAddressAlreadyChecked($billingAddress)
         ) {
             
             $checkResult = $this->validateAddress($checkClient, $billingAddress);
             
             switch ($checkResult[0]->trafficlight) {
-                case 'rot':
-                    $errors->add(new InvalidBillingAddressCartError($checkResult[0]->resulttext));
-                    break;
                 case 'gelb':
                     $errors->add(new BillingAddressChangedCartError($checkResult[0]->resulttext));
                     $this->setAddressFromCheckResult($billingAddress, $checkResult[0]);
@@ -415,6 +405,8 @@ class CartValidator implements CartValidatorInterface
                     $this->setAddressFromCheckResult($billingAddress, $checkResult[0]);
                     $this->setAddressHash($billingAddress);
                     break;
+                default:
+                    $errors->add(new InvalidBillingAddressCartError($checkResult[0]->resulttext));
             }
         }
     }
@@ -484,9 +476,9 @@ class CartValidator implements CartValidatorInterface
     {
         $addressString = implode('-', [
             $address->getStreet(),
-            $address->getZipcode(),
+            $address->getZipcode() ?? '',
             $address->getCity(),
-            $address->getCountry(),
+            $address->getCountry()?->getIso() ?? '',
         ]);
         
         return md5($addressString);
