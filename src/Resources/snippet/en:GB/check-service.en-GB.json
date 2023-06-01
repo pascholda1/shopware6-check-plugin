@@ -1,8 +1,38 @@
 {
 	"checkout": {
-		"adresslabor-invalid-address-blocked": "invalid address cart"
-	},
-	"error": {
-		"adresslabor-invalid-address-blocked": "invalid address checkout"
+		"adresslabor-billing-address-blocked-invalid-street": "Zip code and city of billing address found, but not the street.",
+		"adresslabor-billing-address-blocked-ambiguous": "Wrong billing address, there are several ambiguous possibilities",
+		"adresslabor-billing-address-blocked-invalid": "Invalid billing address (or not yet known, new construction area)",
+		"adresslabor-billing-address-blocked-dubious": "Dubious input (request), no check takes place. The request should be checked manually.",
+		"adresslabor-shipping-address-blocked-invalid-street": "Zip code and city of the shipping address found, but not the street.",
+		"adresslabor-shipping-address-blocked-ambiguous": "Wrong shipping address, there are several ambiguous possibilities",
+		"adresslabor-shipping-address-blocked-invalid": "Invalid shipping address (or not yet known, new construction area)",
+		"adresslabor-shipping-address-blocked-dubious": "Dubious input (request), no check takes place. The request should be checked manually.",
+		"adresslabor-fake-name-blocked-invalid-firstname": "First name dubious",
+		"adresslabor-fake-name-blocked-invalid-lastname": "Last name dubious",
+		"adresslabor-fake-name-blocked-invalid": "Combination of first and last name dubious",
+		"adresslabor-email-address-blocked-invalid": "E-mail is invalid.",
+		"adresslabor-email-address-blocked-invalid-length": "E-mail is too long.",
+		"adresslabor-email-address-blocked-missing-at": "E-mail has no @ sign.",
+		"adresslabor-email-address-blocked-invalid-character": "Invalid character in the local part.",
+		"adresslabor-email-address-blocked-missing-local-part": "E-mail has no local part.",
+		"adresslabor-email-address-blocked-missing-domain": "E-mail has no domain part.",
+		"adresslabor-email-address-blocked-invalid-dots": "E-mail begins or ends with a dot or has 2 dots in a row.",
+		"adresslabor-email-address-blocked-invalid-character-in-comment": "Email contains invalid characters in a comment.",
+		"adresslabor-email-address-blocked-unescaped-character": "Email contains a character that must be escaped but is not.",
+		"adresslabor-email-address-blocked-invalid-local-part-character-count": "The local part of the email is too long.",
+		"adresslabor-email-address-blocked-invalid-prefix": "The numeric address has an incorrect prefix.",
+		"adresslabor-email-address-blocked-invalid-domain-empty-part": "The domain part contains an empty element.",
+		"adresslabor-email-address-blocked-invalid-domain-character-count-part": "The domain part contains an element that is too long.",
+		"adresslabor-email-address-blocked-invalid-domain-invalid-character": "The domain part contains an invalid character.",
+		"adresslabor-email-address-blocked-invalid-domain-character-length": "The domain part is too long.",
+		"adresslabor-email-address-blocked-invalid-ip6-group-count": "The IPv6 address contains too many groups.",
+		"adresslabor-email-address-blocked-invalid-ip6-character-count": "The IPv6 address contains the wrong number of groups.",
+		"adresslabor-email-address-blocked-invalid-ip6-sequence-count": "The IPv6 address contains an incorrect group of characters.",
+		"adresslabor-email-address-blocked-invalid-ip6-starts-with-dot": "The IPv6 address contains too many :: sequences.",
+		"adresslabor-email-address-blocked-invalid-ip6-ends-with-dot": "The IPv6 address begins with a single dot.",
+		"adresslabor-email-address-blocked-invalid-domain": "Top-level domain is invalid.",
+		"adresslabor-email-address-blocked-invalid-disposable-mail": "Domain indicates disposable email address.",
+		"adresslabor-invalid-name-blocked": "Dubious name"
 	}
 }
