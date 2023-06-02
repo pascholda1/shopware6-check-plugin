@@ -47,7 +47,11 @@ trait AddressCheckTrait
             case 'gelb':
                 $errors->add(new ShippingAddressChangedCartError($checkResult[0]->resulttext));
                 $this->setAddressFromCheckResult($shippingAddress, $checkResult[0]);
-                $this->setAddressHash($shippingAddress);
+                if ($checkResult[0]->hno === '') {
+                    $errors->add(new InvalidShippingAddressCartError('missing-hno'));
+                } else {
+                    $this->setAddressHash($shippingAddress);
+                }
                 break;
             case 'gruen':
                 $this->setAddressFromCheckResult($shippingAddress, $checkResult[0]);
@@ -92,7 +96,11 @@ trait AddressCheckTrait
                 break;
             case 'gruen':
                 $this->setAddressFromCheckResult($billingAddress, $checkResult[0]);
-                $this->setAddressHash($billingAddress);
+                if ($checkResult[0]->hno === '') {
+                    $errors->add(new InvalidBillingAddressCartError('missing-hno'));
+                } else {
+                    $this->setAddressHash($billingAddress);
+                }
                 break;
             default:
                 $errors->add(new InvalidBillingAddressCartError($checkResult[0]->resulttext));
