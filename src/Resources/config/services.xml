@@ -7,6 +7,7 @@
 	<services>
 		<service id="Adresslabor\CheckPlugin\Core\Checkout\Cart\Validation\CartValidator">
 			<argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+			<argument type="service" id="salutation.repository"/>
 			<tag name="shopware.cart.validator"/>
 		</service>
 

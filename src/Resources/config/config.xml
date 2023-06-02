@@ -76,6 +76,19 @@
 			<label lang="de-DE">Namen validieren</label>
 			<default>true</default>
 		</input-field>
+		<input-field type="text">
+			<name>technicalNameMr</name>
+			<label>Technical Salutation Name (Mr.)</label>
+			<label lang="de-DE">Technische Anrede (Herr)</label>
+			<default>mr</default>
+		</input-field>
+		<input-field type="text">
+			<name>technicalNameMrs</name>
+			<label>Technical Salutation Name (Mrs.)</label>
+			<label lang="de-DE">Technische Anrede (Frau)</label>
+			<default>mrs</default>
+		</input-field>
+
 		<input-field type="bool">
 			<name>fakeCheck</name>
 			<label>Block dubios names (fake check)</label>
