@@ -6,7 +6,7 @@
 		"adresslabor-billing-address-blocked-dubious": "Dubious input (request), no check takes place. The request should be checked manually.",
 		"adresslabor-shipping-address-blocked-invalid-street": "Zip code and city of the shipping address found, but not the street.",
 		"adresslabor-shipping-address-blocked-ambiguous": "Wrong shipping address, there are several ambiguous possibilities",
-		"adresslabor-shipping-address-blocked-invalid": "Invalid shipping address (or not yet known, new construction area)",
+		"adresslabor-shipping-address-blocked-invalid": "Invalid shipping address",
 		"adresslabor-shipping-address-blocked-dubious": "Dubious input (request), no check takes place. The request should be checked manually.",
 		"adresslabor-fake-name-blocked-invalid-firstname": "First name dubious",
 		"adresslabor-fake-name-blocked-invalid-lastname": "Last name dubious",

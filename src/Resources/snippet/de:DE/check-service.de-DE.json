@@ -6,7 +6,7 @@
 		"adresslabor-billing-address-blocked-dubious": "Dubiose Eingabe",
 		"adresslabor-shipping-address-blocked-invalid-street": "Die Straße der Lieferadresse wurde nicht gefunden.",
 		"adresslabor-shipping-address-blocked-ambiguous": "Falsche Lieferadresse, es gibt mehrere, nicht eindeutige Möglichkeiten.",
-		"adresslabor-shipping-address-blocked-invalid": "Ungültige Lieferadresse (oder noch nicht bekannt, Neubaugebiet)",
+		"adresslabor-shipping-address-blocked-invalid": "Ungültige Lieferadresse",
 		"adresslabor-shipping-address-blocked-dubious": "Dubiose Eingabe",
 		"adresslabor-fake-name-blocked-invalid-firstname": "Vorname dubios,",
 		"adresslabor-fake-name-blocked-invalid-lastname": "Nachname dubios,",
